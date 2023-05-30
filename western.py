@@ -4,54 +4,15 @@ import time
 import random
 import threading
 
+from Model import GameData
+
 pygame.init()
-#----------------DATA--------------------#
-class Colours():
-    black = (0, 0, 0)
-    white = (255, 255, 255)
-    blue = (33, 149, 243)
-    ground = (204, 220, 57)
-    red = (255,13,13)
-    green = (85,255,38)
-
-class GameWindow():
-    win_width = 1024
-    win_height = 768
-
-class Enemy():
-    xpos_enemy = 498
-    ypos_enemy = 200
-    shotTime = 1.3
-    enemyWait = pygame.image.load('rewolwerowiec_waiting.png')
-    enemyAttack = pygame.image.load('rewolwerowiec_holding_guns.png')
-    enemyShot = pygame.image.load('rewolwerowiec_shoting.png')
-    enemyCowboy = enemyWait
-
-class Player():
-    xpos_mouse = 0
-    ypos_mouse = 0
-    dxpos_mouse = 0
-    dypos_mouse = 0
-    xpos_crosshair = 0
-    ypos_crosshair = 0
-    crosshair = pygame.image.load('crosshair.png')
-    rewolwer = pygame.image.load('rewolwer.png')
-
-class Sounds():
-    sound_clock_bell = mixer.Sound('clock_strick.wav')
-    sound_gun_shot = mixer.Sound('gun_shot.wav')
-
-
-myColours = Colours()
-myGameWindow = GameWindow()
-myEnemy = Enemy()
-myPlayer = Player()
-mySounds = Sounds()
 
 #------------INTERFACE------------#
 class Interface():
     ground_level = 300
-    win = pygame.display.set_mode((myGameWindow.win_width, myGameWindow.win_height))
+    #win = pygame.display.set_mode((myGameWindow.win_width, myGameWindow.win_height))
+    win = pygame.display.set_mode((GameData.GAME_WINDOW_WIDTH, GameData.GAME_WINDOW_HEIGHT))
     font = pygame.font.SysFont('arial', 20)
 
     def displayText(self, text, xpos, ypos, size, colour):
@@ -85,21 +46,7 @@ myInterface = Interface()
 
 
 #------------CONTROLLER-----------#
-class Flags():
-    fGameRun = True
-    fDuelStart = False
-    fDuelStop = False
-    fWin = False
-    fLose = False
-    fQuite = False
-    fPressSpace = False
-    fPressLPM = False
-    fGunInHand = False
-    fVisibleCrosshair = False
-    fFire = False
 
-
-myFlags = Flags()
 
 
 class Stoper():
