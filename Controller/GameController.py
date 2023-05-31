@@ -69,6 +69,24 @@ class GameController():
                 if self.gameData.myFlags.fLPMPressed:
                     self.gameData.myFlags.fWin = True
 
+        if self.mouse_ypos < 233 and self.mouse_ypos > 199:
+            if self.mouse_xpos < 547 and self.mouse_xpos > 519:
+                if self.gameData.myFlags.fLPMPressed:
+                    self.gameData.myFlags.fWin = True
+        elif self.mouse_ypos < 242 and self.mouse_ypos > 232:
+            if self.mouse_xpos < 542 and self.mouse_xpos > 524:
+                if self.gameData.myFlags.fLPMPressed:
+                    self.gameData.myFlags.fWin = True
+        elif self.mouse_ypos < 291 and self.mouse_ypos > 241:
+            if self.mouse_xpos < 569 and self.mouse_xpos > 498:
+                if self.gameData.myFlags.fLPMPressed:
+                    self.gameData.myFlags.fWin = True
+        elif self.mouse_ypos < 322 and self.mouse_ypos > 290:
+            if (self.mouse_xpos < 525 and self.mouse_xpos > 514) or (
+                    self.mouse_xpos < 553 and self.mouse_xpos > 542):
+                if self.gameData.myFlags.fLPMPressed:
+                    self.gameData.myFlags.fWin = True
+
     def runGame(self):
         self.state = "IDLE"
 
