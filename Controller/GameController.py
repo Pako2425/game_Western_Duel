@@ -46,9 +46,9 @@ class GameController():
         self.gameData.myPlayer.crosshair_ypos = self.mouse_ypos - 28
 
     def randMouseAndCrosshairPos(self):
-        self.mouse_dxpos = random.randint(0 + 100, game_config.GAME_WINDOW_WIDTH - 100)
-        self.mouse_dypos = random.randint(0 + 50, myGameWindow.win_height - 50)
-        pygame.mouse.set_pos(myPlayer.dxpos_mouse, myPlayer.dypos_mouse)
+        self.mouse_xpos = random.randint(100, game_config.GAME_WINDOW_WIDTH - 100)
+        self.mouse_ypos = random.randint(50, game_config.GAME_WINDOW_HEIGHT - 50)
+        pygame.mouse.set_pos(self.mouse_xpos, self.mouse_ypos)
 
     def checkIfEnemyHit(self):
         if self.mouse_ypos < 233 and self.mouse_ypos > 199:
@@ -106,8 +106,7 @@ class GameController():
 
                 if self.gameStoper.read() > self.waitingTime:
                     self.state = "DUEL"
-                    self.mouse_xpos = random.randint(0, game_config.GAME_WINDOW_WIDTH)
-                    self.mouse_ypos = random.randint(0, game_config.GAME_WINDOW_HEIGHT)
+                    self.randMouseAndCrosshairPos()
                     pygame.mouse.set_pos(self.mouse_xpos, self.mouse_ypos)
                     self.gameView.playClockBellSound(self.gameData.mySounds.ClockBell_sound)
                     self.gameStoper.reset()
