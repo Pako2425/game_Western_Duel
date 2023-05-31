@@ -4,9 +4,9 @@ class Enemy():
         self.xpos_enemy = xpos_enemy
         self.ypos_enemy = ypos_enemy
         self.shotTime = shotTime
-        self.enemyWait = pygame.image.load('rewolwerowiec_waiting.png')
-        self.enemyAttack = pygame.image.load('rewolwerowiec_holding_guns.png')
-        self.enemyShot = pygame.image.load('rewolwerowiec_shoting.png')
+        self.enemyWait = pygame.image.load('Model/Textures/rewolwerowiec_waiting.png')
+        self.enemyAttack = pygame.image.load('Model/Textures/rewolwerowiec_holding_guns.png')
+        self.enemyShot = pygame.image.load('Model/Textures/rewolwerowiec_shoting.png')
         self.enemyCowboy = self.enemyWait
 
     def setWaitPose(self):

@@ -28,8 +28,8 @@ class GameView():
     def drawPlayerGun(self, gun, playerGun_xpos, playerGun_ypos):
         self.win.blit(gun, (playerGun_xpos, playerGun_ypos))
 
-    def playClockBellSound(self, soundPath):
-        mixer.Sound(soundPath).play()
+    def playClockBellSound(self):
+        mixer.Sound('Model/Sounds/clock_strick.wav').play()
 
-    def playGunShotSound(self, soundPath):
-        mixer.Sound(soundPath).play()
+    def playGunShotSound(self):
+        mixer.Sound('Model/Sounds/gun_shot.wav').play()

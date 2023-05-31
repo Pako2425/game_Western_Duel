@@ -108,7 +108,7 @@ class GameController():
                     self.state = "DUEL"
                     self.randMouseAndCrosshairPos()
                     pygame.mouse.set_pos(self.mouse_xpos, self.mouse_ypos)
-                    self.gameView.playClockBellSound(self.gameData.mySounds.ClockBell_sound)
+                    self.gameView.playClockBellSound()
                     self.gameStoper.reset()
 
                 self.gameView.drawBackground()
@@ -120,7 +120,7 @@ class GameController():
                 if self.gameData.myFlags.fSpacePressed:
                     self.gameData.myFlags.fGunInHand = True
                 if self.gameData.myFlags.fLPMPressed:
-                    self.gameView.playGunShotSound(self.gameData.mySounds.GunShot_sound)
+                    self.gameView.playGunShotSound()
                 self.updateCrosshairPosition()
                 self.checkIfEnemyHit()
 
@@ -132,7 +132,7 @@ class GameController():
                     self.gameData.myEnemy.setAttackPose()
                 else:
                     self.gameData.myEnemy.setShotPose()
-                    self.gameView.playGunShotSound(self.gameData.mySounds.GunShot_sound)
+                    self.gameView.playGunShotSound()
                     self.gameData.myFlags.fLose = True
 
                 if self.gameData.myFlags.fLose or self.gameData.myFlags.fWin:
