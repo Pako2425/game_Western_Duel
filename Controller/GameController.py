@@ -5,6 +5,7 @@ from Controller import Stoper
 import pygame
 import random
 
+
 class GameController():
     def __init__(self):
         pygame.init()
@@ -17,6 +18,7 @@ class GameController():
         self.mouse_ypos = 0
         self.mouse_dxpos = 0
         self.mouse_dypos = 0
+
 
 
     def readMousePos(self):
@@ -39,7 +41,7 @@ class GameController():
         self.readMousePos()
         self.readKeyboardInput()
 
-    def updateCrosshair(self):
+    def updateCrosshairPosition(self):
         self.gameData.myPlayer.crosshair_xpos = self.mouse_xpos - 28
         self.gameData.myPlayer.crosshair_ypos = self.mouse_ypos - 28
 
@@ -48,7 +50,7 @@ class GameController():
         self.mouse_dypos = random.randint(0 + 50, myGameWindow.win_height - 50)
         pygame.mouse.set_pos(myPlayer.dxpos_mouse, myPlayer.dypos_mouse)
 
-    def checkEnemyHit(self):
+    def checkIfEnemyHit(self):
         if self.mouse_ypos < 233 and self.mouse_ypos > 199:
             if self.mouse_xpos < 547 and self.mouse_xpos > 519:
                 if self.gameData.myFlags.fLPMPressed:
@@ -120,8 +122,9 @@ class GameController():
                     self.gameData.myFlags.fGunInHand = True
                 if self.gameData.myFlags.fLPMPressed:
                     self.gameView.playGunShotSound(self.gameData.mySounds.GunShot_sound)
-                self.updateCrosshair()
-                self.checkEnemyHit()
+                self.updateCrosshairPosition()
+                self.checkIfEnemyHit()
+
 
                 timeAfterBell = self.gameStoper.read()
                 if timeAfterBell <= self.gameData.myEnemy.shotTime / 2.0:
